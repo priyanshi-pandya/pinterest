@@ -14,7 +14,7 @@ class DioConnectivityRequestRetrier{
     StreamSubscription<dynamic>? subscription;
     subscription = connectivity.onConnectivityChanged.listen((connectivityResult) async{
       if(connectivityResult == ConnectivityResult.mobile || connectivityResult == ConnectivityResult.wifi){
-        unawaited(subscription?.cancel());
+        // unawaited(subscription?.cancel());
         completer.complete(
           dio.fetch(requestOptions),
         );
